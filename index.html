@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reeta Upreti | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --bg-main:#0f172a;
+  --bg-section:#020617;
+  --card-bg:#111827;
+  --accent:#38bdf8;
+  --text-main:#e5e7eb;
+  --text-muted:#9ca3af;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg-main);
+  color:var(--text-main);
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  background:rgba(15,23,42,0.9);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+.nav{
+  max-width:1100px;
+  margin:auto;
+  padding:15px;
+  display:flex;
+  justify-content:right;
+  gap:50px;
+}
+/*
+nav a{
+  font-size: 1.15rem;  
+  color:var(--text-main);
+  text-decoration:none;
+  margin-left:20px;
+  letter-spacing: 0.3px;
+}
+nav a:hover{color:var(--accent)}*/
+/* NAVBAR LINKS */
+nav a{
+  position: relative;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-left: 28px;
+  letter-spacing: 0.3px;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  gap:50px;
+}
+
+/* Hover color */
+nav a:hover{
+  color: var(--accent);
+}
+
+/* Underline animation */
+nav a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after{
+  width: 100%;
+}
+
+/* Active link */
+nav a.active{
+  color: var(--accent);
+}
+
+/* Sticky navbar shadow on scroll */
+nav.scrolled{
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+
+.nav-icons{
+  display:flex;
+  gap:25px;       /* space between icons */
+  margin-left:40px; /* more space between links and icons */
+}
+
+
+  
+
+
+/*
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding-top:80px;
+}*/
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  background: linear-gradient(135deg, #01102c, #011639);
+}
+
+/* Sparkles / floating dots */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px);
+  background-size: 10px 10px;
+  animation: sparkle 20s linear infinite;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+@keyframes sparkle {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-100px, -100px); }
+}
+
+
+
+
+.hero-box{
+  max-width:1100px;
+  margin:auto;
+  padding:40px;
+}
+.hero h1{
+  font-size:3.2rem;
+  font-weight:700;
+}
+.hero span{
+  color:var(--accent);
+  display:inline-block;
+  animation:float 3s ease-in-out infinite;
+}
+.hero p{
+  margin-top:15px;
+  color:var(--text-mute);
+  font-size:1.1rem;
+}
+.hero a{
+  display:inline-block;
+  margin-top:30px;
+  padding:12px 30px;
+  background:var(--accent);
+  color:#0d0132;
+  font-weight:600;
+  border-radius:6px;
+  text-decoration:none;
+}
+
+/* FLOATING ANIMATION */
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+  100%{transform:translateY(0)}
+}
+
+
+/* SECTIONS */
+.title:hover{
+  color: var(--accent);
+}
+
+.section-title{
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  font-weight: 700;
+  padding-bottom: 6px;
+}
+
+/* underline effect */
+
+section{
+  padding:80px 20px;
+}
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+.title{
+  font-size:2rem;
+  font-weight:700;
+  margin-bottom:40px;
+}
+
+#about{
+ position: relative;
+ padding: 80px 0;
+ background:
+    radial-gradient(2px 2px at 20% 30%, rgba(59,130,246,0.6) 50%, transparent 51%),
+    radial-gradient(2px 2px at 70% 60%, rgba(99,102,241,0.6) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 40% 80%, rgba(14,165,233,0.5) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 85% 25%, rgba(59,130,246,0.5) 50%, transparent 51%),
+    linear-gradient(135deg, #061a3f, #102346);
+}
+
+
+/* SKILLS 
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:20px;
+}
+.skill{
+  background:var(--card-bg);
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+  transition:.3s;
+}
+.skill:hover{
+  border:1px solid var(--accent);
+  transform:translateY(-5px);
+}
+*/
+
+#skills{
+ position: relative;
+ padding: 80px 0;
+ background:
+    radial-gradient(2px 2px at 20% 30%, rgba(59,130,246,0.6) 50%, transparent 51%),
+    radial-gradient(2px 2px at 70% 60%, rgba(99,102,241,0.6) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 40% 80%, rgba(14,165,233,0.5) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 85% 25%, rgba(59,130,246,0.5) 50%, transparent 51%),
+    linear-gradient(135deg, #0e203f, #071d42);
+}
+
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:22px;
+}
+
+.skill{
+  background:var(--card-bg);
+  padding:22px;
+  border-radius:12px;
+  text-align:center;
+  font-weight:600;
+  font-size:1.05rem;
+  cursor:pointer;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp 0.6s forwards;
+  transition:0.3s;
+}
+
+.skill:hover{
+  background:#020617;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  transform:translateY(-6px) scale(1.05);
+}
+
+/* Animation */
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* PROJECTS */
+
+#projects{
+  position: relative;
+  padding: 80px 0;
+  background:
+    radial-gradient(2px 2px at 20% 30%, rgba(59,130,246,0.6) 50%, transparent 51%),
+    radial-gradient(2px 2px at 70% 60%, rgba(99,102,241,0.6) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 40% 80%, rgba(14,165,233,0.5) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 85% 25%, rgba(59,130,246,0.5) 50%, transparent 51%),
+    linear-gradient(135deg, #061a3f, #102346);
+}
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+.project{
+  background:var(--card-bg);
+  padding:25px;
+  border-radius:12px;
+  transition:.3s;
+}
+.project:hover{
+  transform:translateY(-6px);
+  border:1px solid var(--accent);
+}
+.project p{color:var(--text-muted)}
+
+/* CONTACT */
+#contact{
+ position: relative;
+ padding: 80px 0;
+ background:
+    radial-gradient(2px 2px at 20% 30%, rgba(59,130,246,0.6) 50%, transparent 51%),
+    radial-gradient(2px 2px at 70% 60%, rgba(99,102,241,0.6) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 40% 80%, rgba(14,165,233,0.5) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 85% 25%, rgba(59,130,246,0.5) 50%, transparent 51%),
+    linear-gradient(135deg, #0e203f, #071d42);
+}
+.contact a{
+   background:
+   color:var(--accent);
+   text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+  background:var(--bg-section);
+  text-align:center;
+  padding:20px;
+  color:var(--text-muted);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{font-size:2.2rem}
+}
+</style>
+</head>
+
+<body>
+
+
+
+<nav>
+  <div class="nav">
+
+    <!-- Navbar links -->
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+
+    <!-- Icons on the side -->
+    <div class="nav-icons">
+      <a href="mailto:reetaupreti78@gmail.com">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+      <a href="https://github.com/Reeta-upreti" target="_blank">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/reeta-upreti" target="_blank">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+
+
+  
+
+
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-box">
+    <h1>Hi, I'm <span>Reeta Upreti</span></h1>
+    <p>Software Developer • Web Developer • Problem Solver</p>
+    <a href="#projects">View Projects</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <h2 class="title">About Me</h2>
+    <p style="max-width:700px;color:var(--text-muted)">
+    I am a motivated and adaptable individual seeking an opportunity to contribute to an organization’s success while continuously developing skills and achieving full professional potential.
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS 
+<section id="skills">
+  <div class="container">
+    <h2 class="title">Skills</h2>
+    <div class="skills">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Java</div>
+      <div class="skill">SQL</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">GitHub</div>
+      <div class="skill">Bootstrap</div>
+    </div>
+  </div>
+</section>
+-->
+<section id="skills">
+  <div class="container">
+    <h2 class="title">Skills</h2>
+    <div class="skills" id="skillsContainer">
+      <!-- Skills will be injected dynamically -->
+    </div>
+  </div>
+</section>
+
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <h2 class="title">Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>REVENTA</h3>
+        <p>Reselling & renting platform with verification workflow.</p>
+        <p><b>Tech:</b> HTML, CSS, JS, Node.js</p>
+      </div>
+      <div class="project">
+        <h3>Emotion Detection Model</h3>
+        <p>Detects Human Emotion every second.</p>
+        <p><b>Tech:</b> Python, ML, OpenCV</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container contact">
+    <h2 class="title">Contact</h2>
+    <p>Email: <a href="mailto:reetaupreti78@gmail.com"> reetaupreti78@gmail.com</a></p>
+    <p>GitHub:  github.com/Reeta-upreti</p>
+    <p>LinkedIn:  linkedin.com/in/reeta-upreti</p>
+  </div>
+</section>
+
+<footer>
+  © 2025 Reeta Upreti | Portfolio
+</footer>
+
+
+<script>
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Java",
+  "SQL",
+  "ML",
+  "Python",
+  "Problem Solving"
+];
+
+const skillsContainer = document.getElementById("skillsContainer");
+
+skills.forEach((skill, index) => {
+  const div = document.createElement("div");
+  div.className = "skill";
+  div.style.animationDelay = `${index * 0.1}s`;
+  div.textContent = skill;
+  skillsContainer.appendChild(div);
+});
+
+</script>
+
+</body>
+</html>
